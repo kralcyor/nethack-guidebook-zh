@@ -1,0 +1,49 @@
+These are LaTeX sources of a Chinese translation of NetHack Guidebook. 
+These sources may be freely distributed and modified. 
+See individual file for its exact license. 
+
+这是 NetHack Guidebook 的中文翻译的 LaTeX 源文件。这些源文件可以自由地分发和修改。
+查看单个文件以获知它使用的具体协议。
+
+翻译者为 Roy Clark (kralcyor) <kralcyor@kralcyor.info> ；翻译在 2015 年完成。
+
+文件版本为 0.1。
+
+################################################################################
+###  对修改和编译文档的提示 
+
+文档的主体为 “guidebook-zh.tex”，它会插入“zhTrans-cmds.tex”（自定义 LaTeX 命令）和
+“zhTrans-table.tex”（译名对照表）。后两者使用 “generate_zhTrans_snippets.sh” 以
+“zhTrans-template” 作为模板生成。
+
+1. 如果你修改时想使用 “generate_zhTrans_snippets.sh”，可以按以下步骤。否则请看 2.。
+
+例如，在本翻译中，“pet”被翻译成了“宠物”。如果你想将其翻译成“堵路的乱动东西的抢东西吃的只顾着
+自己吃却不帮忙打怪甚至连有被诅咒的物品也不管了的讨厌家伙”，只需在“zhTrans-template”中找到
+相应的位置，并将“宠物”用上述词语替换，接着运行 “generate_zhTrans_snippets.sh”，然后再对 
+“guidebook-zh.tex” 进行编译即可。你可能需要重复编译数次，以生成正确的标签和目录等。具体编
+译方法依系统不同而不同，请自行参考相应的帮助等资料。
+
+又如，“god”在本翻译中被翻译成了“神”，并且没有使用自定义 LaTeX 命令。如果你想对其使用类似的
+命令，并译成“一种帮助脱离危险情形但又要防止被滥用的机制”，那么你只需在 “zhTrans-template”
+中加入如下一行：
+God	一种帮助脱离危险情形但又要防止被滥用的机制	god
+
+然后在 “guidebook-zh.tex” 中凡是要翻译 “god” 的地方，使用“\zhTransGod”即可。请注意，
+“\zhTransGod”可能会与后面的文字连在一起，作为另一命令解释。此时可以写成
+\zhTransGod{}后面的文字
+或者
+\zhTransGod 后面的文字
+
+第二种写法可能会在命令与其后续的文字间插入一个空格；这种情况在第一种写法时一定不会发生。
+
+同样地，修改后只需运行 “generate_zhTrans_snippets.sh”，然后再对 “guidebook-zh.tex” 
+进行编译即可。
+
+2. 如果你无法使用或不想使用 “generate_zhTrans_snippets.sh”，你可以直接修改 .tex 文件。
+请注意，对于那些使用了自定义命令的词（形如 \zhTransCOMMAND），修改需要进行两次，一次在
+“zhTrans-cmds.tex” 里，另一次在 “zhTrans-table.tex” 里。或者你可以将所有
+\zhTransCOMMAND 删去，并换成翻译的文字。
+修改后直接编译 “guidebook-zh.tex” 编译即可。你可能需要重复编译数次，以生成正确的标签和目录
+等。具体编译方法依系统不同，请自行参考相应的帮助等资料。
+

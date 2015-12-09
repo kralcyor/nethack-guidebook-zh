@@ -1,0 +1,438 @@
+# zhTrans-template 
+
+# Author: Roy Clark (kralcyor) <kralcyor@kralcyor.info> 
+# Date: 2015 
+
+# This file is available under NetHack General Public License. 
+# The License is included in the file `license'. 
+
+# 该文件作为 “generate_zhTrans_snippets.sh” 的输入文件，用于生成自定义 LaTeX 命令
+# （zhTrans-cmds.tex）和译名对照表（zhTrans-table.tex）。
+
+# 文件的格式
+# 
+# 以 “#” 开始的行是注释；注释行以及空行会被忽略。
+# 以 “%” 开始的行在生成 “zhTrans-cmds.tex” 时有特殊用途。
+# 其余的行对文档内容有实际意义。这些行包含三列，以 TAB（\t）分隔，如下
+#       COMMAND	TRANSLATION	COMMENT
+
+# 1. zhTrans-cmds.tex 
+#   生成 “zhTrans-cmds.tex” 时，会忽略注释行和空行，按顺序分析其余的行，并依次输出生成的
+#   结果。
+#   以 “%NEWLINE” 开始的行会产生一个换行。其余的以 “%” 开始的行会原样输出，即作为 LaTeX
+#   的注释。
+#   有实际意义的行会生成一个 LaTeX 命令的定义，每一行会生成如下的两行
+#       % COMMENT
+#       \newcommand{\zhTransCOMMAND}{TRANSLATION}
+# 
+#       ^ 这里是输出行的开始
+# 2. zhTrans-table.tex 
+#   生成 “zhTrans-cmds.tex” 时，会忽略注释行和空行，以及所有以 “%” 开始的行。
+#   输出前会以 COMMAND 按字母表顺序将有实际意义的行进行排序。
+#   每一行会生成英文为 COMMENT，中文为 TRANSLATION 的译名对照表中的一项。
+
+# “generate_zhTrans_snippets.sh” 功能是不完整的，过分随意的输入文件可能导致意外的结果。
+
+# 该文件现在包括以下几个部分。
+#    unique name 
+#    roles 
+#    races 
+#    items in the status lines 
+#    alignment 
+#    BUC 
+#    dungeon features 
+#    traps 
+#    Encumbrance 
+#    skills 
+#    object classes 
+#    weapons 
+#    armors 
+#    food 
+#    other objects 
+#    monsters 
+#    miscellaneous
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% unique name 
+AmuletOfYendor	壬铎护身符	the Amulet of Yendor
+ValleyOfGehennom	地狱之谷	the Valley of Gehennom
+MazesOfMenace	恐吓迷宫	the Mazes of Menace
+GnomishMines	侏儒矿坑	Gnomish Mines
+OracleOfDelpi	德尔斐的祭司	the Oracle of Delphi
+DungeonsOfDoom	毁灭地牢	the Dungeons of Doom
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% roles 
+Archeologists	考古学家	Archeologist
+Barbarians	野蛮人	Barbarian
+Cavemen	穴居人	Caveman
+Healers	医治师	Healer
+Knights	骑士	Knight
+Monks	僧侣	Monk
+Priests	祭司	Priest
+Rangers	漫游者	Ranger
+Rogues	流氓	Rogue
+Samurai	武士	Samurai
+Tourists	游客	Tourist
+Valkyries	女武神	Valkyrie
+Wizards	巫师	Wizard
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% races 
+Dwarves	矮人	Dwarf
+Elves	精灵	Elf
+Gnomes	侏儒	Gnome
+Humans	人类	Human
+Orcs	半兽人	Orc
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% items in the status lines 
+Rank	级别	Rank
+Strength	力量值	Strength
+Dexterity	敏捷值	Dexterity
+Constitution	体格值	Constitution
+Intelligence	智力值	Intelligence
+Wisdom	智慧值	Wisdom
+Charisma	魅力值	Charisma
+Alignment	阵营	Alignment
+DungeonLevel	地牢层数	Dungeon Level
+Gold	黄金	Gold
+HitPoints	生命值	Hit Point
+Power	能量	Power
+ArmorClass	护甲等级	Armor Class
+Experience	经验	Experience
+Time	时间	Time
+HungerStatus	饥饿状态	Hunger Status
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% alignment 
+Lawful	守序	Lawful
+Neutral	中立	Neutral
+Chaotic	混乱	Chaotic
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% BUC 
+Blessed	被祝福的	blessed
+Uncursed	未被诅咒的	uncursed
+Cursed	被诅咒的	cursed
+Curses	诅咒	curse
+Blessing	祝福	blessing
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% dungeon features 
+SolidRock	坚硬的石头	solid rock
+Wall	墙	wall
+Corner	墙角	corner
+Doorway	门口	doorway
+Door	门	door
+IronBars	铁条	iron bar
+Tree	树	tree
+Floor	地面	floor
+Corridor	走道	corridor
+Stairs	楼梯	stair
+Ladders	梯子	ladder
+Altar	祭坛	altar
+Grave	坟墓	grave
+Throne	王座	throne
+Sink	水池	sink
+Fountain	泉	fountain
+Pool	水池	pool
+Moat	护城河	moat
+Ice	冰	ice
+Lava	熔岩	lava
+Drawbridge	吊桥	drawbridge
+Air	空气	air
+Cloud	云	cloud
+UnderWater	水面底下	under water
+Traps	陷阱	trap
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% traps 
+ArrowTrap	箭陷阱	arrow trap
+DartTrap	飞镖陷阱	dart trap
+FallingRockTrap	落石陷阱	falling rock trap
+SqueakyBoard	发出吱吱声的地板	squeaky board
+BearTrap	捕熊器	bear trap
+LandMine	地雷	land mine
+RollingBoulderTrap	滚动巨石陷阱	rolling boulder trap
+SleepingGasTrap	催眠陷阱	sleeping gas trap
+RustTrap	锈蚀陷阱	rust trap
+FireTrap	烈火陷阱	fire trap
+Pit	坑	pit
+SpikedPit	尖刺坑	spiked pit
+Hole	洞	hole
+TrapDoor	陷阱门	trap door
+TeleportationTrap	瞬移陷阱	teleportation trap
+LevelTeleporter	层间瞬移陷阱	level teleporter
+MagicPortal	魔法入口	magic portal
+Web	蜘蛛网	web
+StatueTrap	雕像陷阱	statue trap
+MagicTrap	魔法陷阱	magic trap
+AntiMagicField	反魔法力场	anti-magic field
+PolymorphTrap	变形陷阱	polymorph trap
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Encumbrance 
+Unburdened	不负重的	Unburdened
+Burdened	负重的	Burdened
+Stressed	受重压的	Stressed
+Strained	勉强的	Strained
+Overtaxed	负担过重的	Overtaxed
+Overloaded	过载的	Overloaded
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% skills 
+None	没有的	none
+Restricted	受限制的	restricted
+Unskilled	不熟练的	unskilled
+Basic	基本的	basic
+Skilled	熟练的	skilled
+Expert	内行的	expert
+Master	大师	master
+% 这翻译的都什么鬼。
+GrandMaster	特级大师	grand master
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% object classes 
+Weapon	武器	weapon
+Armor	护甲	armor
+Food	食物	food
+Scroll	卷轴	scroll
+Potion	药水	potion
+Wand	魔杖	wand
+Ring	戒指	ring
+Spellbook	咒语书	spellbook
+Tool	工具	tool
+Amulet	护身符	amulet
+Gem	宝石	gem
+Boulders	巨石	boulder
+Statue	雕像	statue
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% weapons 
+Aklys	阿克利斯标枪	akly
+Arrows	箭	arrow
+BecDeCorbin	渡鸦嘴战锤	bec-de-corbin
+Bow	弓	bow
+Broadsword	大刀	broadsword
+Crossbow	驽	crossbow
+CrossbowBolt	驽箭	crossbow bolt
+Dagger	匕首	dagger
+LucernHammer	琉森锤	lucern hammer
+Maces	狼牙棒	mace
+Polearm	长兵器	polearm
+Spears	矛	spear
+Staff	棍棒	staff
+Swords	剑	sword
+Sling	投石器	sling
+Boomerang	回飞镖	boomerang
+TwoHandedSword	双手剑	two-handed sword
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% armors 
+DragonScaleMail	龙鳞甲	dragon scale mail
+PlateMail	板链甲	plate mail
+CrystalPlateMail	水晶板链甲	crystal plate mail
+BronzePlateMail	黄铜板链甲	bronze plate mail
+SplintMail	条板甲	splint mail
+BandedMail	带链甲	banded mail
+DwarvishMithrilCoat	矮人秘银衣	dwarvish mithril-coat
+ElvenMithrilCoat	精灵秘银衣	elven mithril-coat
+ChainMail	锁子甲	chain mail
+OrcishChainMail	半兽人锁子甲	orcish chain mail
+ScaleMail	鳞甲	scale mail
+StuddedLeatherArmor	带钉皮甲	studded leather armor
+RingMail	环甲	ring mail
+OrcishRingMail	半兽人环甲	orcish ring mail
+LeatherArmor	皮甲	leather armor
+LeatherJacket	皮夹克	leather jacket
+Shield	盾	shield
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% food 
+LembasWafers	兰巴斯饼干	lembas wafer
+CramRation	克元配给	cram ration
+FoodRation	食物配给	food ration
+KRation	K 配给	K-ration
+CRation	C 配给	C-ration
+Tin	罐头	tin
+FortuneCookie	幸运饼干	fortune cookie
+Pancake	薄煎饼	pancake
+CreamPie	奶油派	cream pie
+CandyBar	方糖块	candy bar
+LumpOfRoyalJelly	蜂王浆团块	lump of royal jelly
+TripeRation	肚儿配给	tripe ration
+SlimeMold	黏菌	slime mold
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% other objects 
+IceBox	冰箱	ice box
+ScrollOfIdentify	鉴定卷轴	scroll of identify
+ScrollOfMail	邮件卷轴	scroll of mail
+HolyWater	圣水	holy water
+UnholyWater	邪恶之水	unholy water
+PickAxe	镐	pick-axe
+PotionOfPolymorph	变形药水	potion of polymorph
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% monsters 
+% FIXME check 
+AngelicBeing	类天使生物	angelic being
+Ant	蚂蚁	ant
+ApelikeCreature	类猿生物	apelike creature
+Arachnid	蛛形纲动物	arachnid
+Bat	蝙蝠	bat
+Bird	鸟类	bird
+BlackPudding	黑布丁	black pudding
+Blobs	液滴	blob
+Centaur	半人马	centaur
+Centipede	蜈蚣	centipede
+% https://zh.wikipedia.org/wiki/%E9%9B%9E%E8%9B%87 
+Cockatrice	鸡蛇	cockatrice
+Demons	恶魔	demons
+Dog	狗	dog
+Dragon	龙	dragon
+Elemental	元素	elemental
+Eye	眼	eye
+Feline	猫科动物	feline
+Fungi	真菌	fungi
+Ghosts	鬼魂	ghost
+Giant	巨人	giant
+GiantHumanoid	巨型类人生物	giant humanoid
+% https://zh.wikipedia.org/wiki/%E9%AD%94%E5%83%8F 
+Golem	魔像	golem
+Gremlin	小妖精	gremlin
+Horse	马	horse
+Humanoid	类人生物	humanoid
+% https://zh.wikipedia.org/wiki/%E5%B0%8F%E6%81%B6%E9%AD%94 
+Imp	小恶魔	imp
+Jabberwock	甲伯沃基	jabberwock
+Jellies	胶冻	jellies
+KeystoneKop	启斯东警察	Keystone Kop
+% https://zh.wikipedia.org/wiki/%E7%8B%97%E5%A4%B4%E4%BA%BA 
+Kobold	狗头人	kobold
+Leprechaun	矮妖精	leprechaun
+% https://zh.wikipedia.org/wiki/%E5%B7%AB%E5%A6%96 
+Lich	巫妖	lich
+Light	光	light
+LittleDog	小狗	little dog
+Lizard	蜥蜴	lizard
+LongWorm	长蠕虫	long worm
+LurkerAbove	顶部潜伏者	lurker above
+MailDaemon	邮件精灵	mail daemon
+Mimic	拟物怪	mimic
+MindFlayer	夺心魔	mind flayer
+MinorDemon	低级恶魔	minor demon
+Mold	霉菌	mold
+Mummy	木乃伊	mummy
+Naga	那伽	naga
+Nymph	仙女	nymph
+Ooze	泥浆	ooze
+Orge	食人魔	ogre
+Piercer	锥状怪	piercer
+Pony	矮种马	pony
+Pudding	布丁	pudding
+Quadruped	四足动物	quadruped
+QuantumMechanic	量子力学	quantum mechanic
+Rodent	啮齿动物	rodent
+RustMonster	锈蚀怪	rust monster
+SeaMonster	海怪	sea monster
+Snake	蛇	snake
+Sphere	球	sphere
+Trapper	陷阱怪	trapper
+Troll	巨怪	troll
+% https://zh.wikipedia.org/wiki/%E5%9C%9F%E5%B7%A8%E6%80%AA 
+UmberHulk	土巨怪	umber hulk
+Undead	不死生物	undead
+Unicorn	独角兽	unicorn
+Vampire	吸血鬼	vampire
+Vortex	旋涡	vortex
+Worm	蠕虫	worm
+Wraith	死灵	wraith
+Xan	三虫	xan
+Xorn	索尔石怪	xorn
+Zombie	僵尸	zombie
+Zruty	祖鲁提	zruty
+
+%NEWLINE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% miscellaneous
+Artifact	神器	artifact
+Attributes	属性	attribute
+Beam	光线	beam
+Beast	动物	beast
+Blind	失明	blind
+Bones	尸骨	Bones
+Bonuses	加成	bonuse
+Cancel	作废	cancel
+Charge	能量	charge
+ComputerFantasyGames	电脑幻想游戏	computer fantasy game
+Confused	迷糊	Confused
+Conduct	品行	conduct
+Credit	信用量	credit
+CreditCard	信用卡	credit card
+Daisho	大小	dai-sho
+DivineIntervention	神的干预	Divine intervention
+Dungeon	地牢	dungeon
+Dungeoneer	地牢探索者	dungeoneer
+Enchanted	被施过法术的	enchanted
+Enchantments	魔法值	enchantment
+Endgame	最终试炼	endgame
+ExperienceLevel	经验等级	experience level
+ExperiencePoints	经验值	experience point
+Fainting	昏晕	Fainting
+Genocide	灭绝	genocide
+Inventory	清单	inventory
+Invisible	隐身的	invisible
+Luck	幸运值	Luck
+MagicResistance	魔法免疫	magic resistance
+Mana	玛那	mana
+MartialArts	战争艺术	martial arts
+MAUD	毛德	MAUD
+Northlands	北国	Northland
+Pets	宠物	pets
+Polymorph	变形	Polymorph
+Quest	任务	quest
+Nippon	日本	Nippon
+Satiated	饱足	Satiated
+Shop	黑店	shop
+Shopkeeper	黑店老板	shopkeeper
+ShortestPath	最短路径	shortest path
+ShortestPathAlg	最短路径算法	shortest-path algorithm
+Sokoban	推箱子	Sokoban
+Steeds	坐骑	steeds
+Stunned	失去平衡	Stunned
+TextAdventureGames	文字冒险游戏	text adventure games
+UnearthedArcana	《被发掘出的奥秘》	{\it Unearthed Arcana}
+
